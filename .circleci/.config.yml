@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /Users/Jay/ruby_apps/studio_game
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: ruby:2.4.1
 
     steps:
       - checkout
