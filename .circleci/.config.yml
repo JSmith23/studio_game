@@ -1,26 +1,14 @@
 version: 2
 jobs:
-    build:
-      docker:
-        -image: ruby:2.4
+  build:
+    working_directory: /Users/Jay/ruby_apps/studio_game
+    docker:
+      - image: circleci/ruby:2.4.1
 
-      working_directory: /Users/Jay/ruby_apps/studio_game
-      steps:
-        - checkout
-        - run: bundle install
-        - run: rspec player_spec.rb
-        - run: rspec game_spec.rb
-
-
-
-
-
-
-
-
-
-
-
-
+    steps:
+      - checkout
+      - run: bundle install
+      - run: rspec player_spec.rb
+      - run: rspec game_spec.rb
 
 
