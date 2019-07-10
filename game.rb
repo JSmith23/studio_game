@@ -1,4 +1,6 @@
 require_relative 'player'
+require_relative 'dye'
+require_relative 'game_turn'
 
 class Game
   attr_reader :title, :players
@@ -15,9 +17,7 @@ class Game
     puts "There are #{@players.size} in #{@title}"
     puts players
     @players.each do |player|
-      player.blam
-      player.w00t
-      player.w00t
+      GameTurn.take_turn(player)
       puts player
     end
   end

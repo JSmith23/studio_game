@@ -23,4 +23,12 @@ class Player
   def score
     @health + @name.length
   end
+
+  def strong?
+    if @health >= 150
+      true
+    else
+      false
+    end
+  end
 end
