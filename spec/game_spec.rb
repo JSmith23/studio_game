@@ -47,29 +47,33 @@ describe Game do
     it "w00ts a player when a high number is rolled" do
       allow_any_instance_of(Dye).to receive(:roll).and_return(5)
       @game.add_player(@player1)
-      @game.add_player(@player2)
-      @game.add_player(@player3)
-      @game.play
-      expect(@player1.health).to eq(115)
+      @game.play(2)
+      expect(@player1.health).to eq(130)
     end
 
     it "skips a player when a medium number is rolled" do
       allow_any_instance_of(Dye).to receive(:roll).and_return(3)
       @game.add_player(@player1)
-      @game.add_player(@player2)
-      @game.add_player(@player3)
-      @game.play
+      @game.play(2)
       expect(@player1.health).to eq(100)
     end
 
     it "blams a player when a low number is rolled" do
       allow_any_instance_of(Dye).to receive(:roll).and_return(1)
       @game.add_player(@player1)
-      @game.add_player(@player2)
-      @game.add_player(@player3)
-      @game.play
-      expect(@player1.health).to eq(90)
+      @game.play(2)
+      expect(@player1.health).to eq(80)
     end
+  end
+
+  it "assigns a treasure for points during a player's turn" do
+    game = Game.new("Knuckleheads")
+    player = Player.new("moe")
+
+    game.add_player(player)
+
+    game.play(1)
+    expect(player.points).to_not be_zero
   end
 
 
